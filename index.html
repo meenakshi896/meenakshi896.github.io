@@ -79,6 +79,17 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
+  function getFriends() {
+    FB.api('/me/friends', function(response) {
+        if(response.data) {
+            $.each(response.data,function(index,friend) {
+                alert(friend.name + ' has id:' + friend.id);
+            });
+        } else {
+            alert("Error!");
+        }
+    });
+}
 </script>
 
 <!--
