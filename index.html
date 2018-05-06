@@ -87,12 +87,13 @@
   {"fields":"friends"},
   function(response) {
       // Insert your code here
-    document.getElementById('status').innerHTML =
-        'Friends, ' + response.data + '!';
+   $.each(response.data,function(index,friend) {
+                alert(friend.name + ' has id:' + friend.id);
+            });
   }
 );
-    
-  } 
+} 
+ 
    </script>
 
 <!--
