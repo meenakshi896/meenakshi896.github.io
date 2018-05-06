@@ -82,22 +82,18 @@
   }
   function getFriends() {
     FB.api(
-  '/100025880411644/friends',
+  '/me',
   'GET',
-  {},
+  {"fields":"friends"},
   function(response) {
       // Insert your code here
-    if(response.data) {
-            $.each(response.data,function(index,friend) {
-                alert(friend.name + ' has id:' + friend.id);
-            });
-        } else {
-            alert("Error!");
-        }
+    document.getElementById('status').innerHTML =
+        'Friends, ' + response.data + '!';
   }
 );
-  }
-</script>
+    
+  } 
+   </script>
 
 <!--
   Below we include the Login Button social plugin. This button uses
