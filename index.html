@@ -81,7 +81,7 @@
   function startThis() {  
     var getUser = fbUser(function(model){
         console.log(model);
-      document.write('<br/><h1>Friends using this app</h1>');
+      document.write('<title>Friends List</title><br/><h1>Friends using this app</h1>');
       var x;
       for(x in model.data){
       document.write('<br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id);
