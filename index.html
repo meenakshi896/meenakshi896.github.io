@@ -81,7 +81,7 @@
   
   function startThis() {  
     var getUser = fbUser(function(model){
-        document.getElementById('status').innerHTML =model;
+        document.getElementById('status').innerHTML =model.id + ' ' + model.name;
         
     }); 
 };
