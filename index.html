@@ -17,9 +17,10 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook
-      uid = response.authResponse.userID;
-      getFriends() ;
+      
+      //getFriends() ;
       testAPI();
+      startThis();
     } else {
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -77,23 +78,20 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-  function getFriends() {
-    FB.api(
-  '/uid/friends',
-  'GET',
-  {},
-  function(response) {
-      // Insert your code here
-      if(response.data) {
-             $.each(response.data,function(index,friend) {
-                 alert(friend.name + "has id:" + friend.id);
-             });
-         } else {
-             alert("Error!");
--        }
-  }
-);
-} 
+  
+  function startThis() {  
+    var getUser = fbUser(function(model){
+        console.log(model);
+        startapp(model);
+    }); 
+};
+
+function fbUser(callback){  
+        FB.api('/me', function(response){
+                callback(response);
+            });
+}
+  
  
    </script>
 
