@@ -80,14 +80,14 @@
   
   function startThis() {  
     var getUser = fbUser(function(model){
-        document.getElementById('status').innerHTML =model.id + ' ' + model.name;
+        console.log(model);
         
     }); 
 };
 
 function fbUser(callback){ 
   var apiStr;
-  apiStr= '/'+ model.id + '/friends';
+  apiStr= '/'+ this.model.id + '/friends';
         FB.api(
   apiStr,
   'GET',
