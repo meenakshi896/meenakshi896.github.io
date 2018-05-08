@@ -16,6 +16,7 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook
+      var uid = response.authResponse.userID;
       getFriends() ;
       testAPI();
     } else {
