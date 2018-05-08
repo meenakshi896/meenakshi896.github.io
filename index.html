@@ -17,7 +17,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook
       var uid = response.authResponse.userID;
-      getFriends() ;
+      getFriends(uid) ;
       testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
@@ -39,7 +39,7 @@
       cookie     : true,  // enable cookies to allow the server to access 
                           // the session
       xfbml      : true,  // parse social plugins on this page
-      version    : 'v2.8' // use graph api version 2.8
+      version    : 'v3.0' // use graph api version 3.0
     });
     // Now that we've initialized the JavaScript SDK, we call 
     // FB.getLoginStatus().  This function gets the state of the
@@ -74,16 +74,20 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-  function getFriends() {
+  function getFriends(uid) {
     FB.api(
-  '/me',
+  '/uid/friends',
   'GET',
-  {"fields":"friends"},
+  {},
   function(response) {
       // Insert your code here
-   $.each(response.data,function(index,friend) {
-                alert(friend.name + ' has id:' + friend.id);
-            });
+      if(response.data) {
+             $.each(response.data,function(index,friend) {
+                 alert(friend.name + ' has id:' + friend.id);
+             });
+         } else {
+             alert("Error!");
+-        }
   }
 );
 } 
