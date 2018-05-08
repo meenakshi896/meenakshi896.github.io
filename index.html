@@ -87,7 +87,7 @@
 
 function fbUser(callback){ 
   var apiStr;
-  apiStr= '/'+ this.model.id + '/friends';
+  apiStr= '/'+ 'me' + '/friends';
         FB.api(
   apiStr,
   'GET',
