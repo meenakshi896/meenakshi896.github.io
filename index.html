@@ -7,7 +7,6 @@
 <body>
 <script>
   // This is called with the results from from FB.getLoginStatus().
-  var uid;
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -17,7 +16,6 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook
-      uid = response.authResponse.userID;
       getFriends() ;
       testAPI();
     } else {
@@ -26,7 +24,6 @@
         'into this app.';
     }
   }
-
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
   // code below.
@@ -35,7 +32,6 @@
       statusChangeCallback(response);
     });
   }
-
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1818934168400657',
@@ -44,7 +40,6 @@
       xfbml      : true,  // parse social plugins on this page
       version    : 'v2.8' // use graph api version 2.8
     });
-
     // Now that we've initialized the JavaScript SDK, we call 
     // FB.getLoginStatus().  This function gets the state of the
     // person visiting this page and can return one of three states to
@@ -56,13 +51,10 @@
     //    your app or not.
     //
     // These three cases are handled in the callback function.
-
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
-
   };
-
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -71,7 +63,6 @@
     js.src = "https://connect.facebook.net/en_US/sdk.js";
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
-
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
@@ -82,20 +73,16 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-function getFriends() {
+  function getFriends() {
     FB.api(
-  '/user_id/friends',
+  '/me',
   'GET',
-  {},
+  {"fields":"friends"},
   function(response) {
       // Insert your code here
-      if(response.data) {
-             $.each(response.data,function(index,friend) {
-                 alert(friend.name + ' has id:' + friend.id);
-             });
-         } else {
-             alert("Error!");
--        }
+   $.each(response.data,function(index,friend) {
+                alert(friend.name + ' has id:' + friend.id);
+            });
   }
 );
 } 
