@@ -7,6 +7,7 @@
 <body>
 <script>
   // This is called with the results from from FB.getLoginStatus().
+  var uid=0;
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
@@ -16,8 +17,9 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook
-      var uid = response.authResponse.userID;
-      getFriends(uid) ;
+      uid = response.authResponse.userID;
+      alert('User ID: '+uid);
+      getFriends() ;
       testAPI();
     } else {
       // The person is not logged into your app or we are unable to tell.
@@ -74,7 +76,7 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-  function getFriends(uid) {
+  function getFriends() {
     FB.api(
   '/uid/friends',
   'GET',
