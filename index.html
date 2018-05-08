@@ -83,7 +83,7 @@
         console.log(model);
       var x;
       for(x in model.data){
-      document.getElementById('status').innerHTML = 'Friends using this app: <br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id + '<br/>Total Friends: '+ model.summary.total_count;
+      document.write('Friends using this app: <br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id + '<br/>Total Friends: '+ model.summary.total_count);
       }
     }); 
 };
