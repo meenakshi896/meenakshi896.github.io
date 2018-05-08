@@ -81,8 +81,10 @@
   function startThis() {  
     var getUser = fbUser(function(model){
         console.log(model);
-      document.getElementById('status').innerHTML = 'Friends using this app: <br/>'+ 'Name: ' + model.data["0"].name + ' User ID: '+ model.data["0"].id + '<br/>Total Friends: '+ model.summary.total_count;
-        
+      var x;
+      for(x in model.data){
+      document.getElementById('status').innerHTML = 'Friends using this app: <br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id + '<br/>Total Friends: '+ model.summary.total_count;
+      }
     }); 
 };
 
