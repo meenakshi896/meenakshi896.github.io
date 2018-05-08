@@ -81,12 +81,12 @@
   function startThis() {  
     var getUser = fbUser(function(model){
         console.log(model);
-      document.write('<br/><h1>Friends using this app</h1><br/>');
+      document.write('<br/><h1>Friends using this app</h1>');
       var x;
       for(x in model.data){
-      document.write('<br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id); 
-        document.write('<br/>Total Friends: '+ model.summary.total_count);
+      document.write('<br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id);
       }
+      document.write('<br/>Total Friends: '+ model.summary.total_count);
     }); 
 };
 
