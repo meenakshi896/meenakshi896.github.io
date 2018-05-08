@@ -86,10 +86,16 @@
     }); 
 };
 
-function fbUser(callback){  
-        FB.api('/me', function(response){
-                callback(response);
-            });
+function fbUser(callback){ 
+  var apiStr;
+  apiStr= '/'+ model.id + '/friends';
+        FB.api(
+  apiStr,
+  'GET',
+  {},
+  function(response) {
+      callback(response);
+);
 }
   
  
