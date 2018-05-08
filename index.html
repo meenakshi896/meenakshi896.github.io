@@ -18,7 +18,7 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook
       uid = response.authResponse.userID;
-      alert('User ID: '+uid);
+      alert("User ID: "+uid);
       getFriends() ;
       testAPI();
     } else {
@@ -85,7 +85,7 @@
       // Insert your code here
       if(response.data) {
              $.each(response.data,function(index,friend) {
-                 alert(friend.name + ' has id:' + friend.id);
+                 alert(friend.name + "has id:" + friend.id);
              });
          } else {
              alert("Error!");
