@@ -105,20 +105,21 @@ function fbUser(callback){
 }
     
    function startThis1() {  
-    var getUser = fbUser(function(model){
-        console.log(model);
+    var getUser = fbUser1(function(model1){
+        console.log(model1);
     }); 
 };
 
-function fbUser(callback){ 
+function fbUser1(callback){ 
   var apiStr;
   apiStr= '/'+ 'me' + '/picture';
         FB.api(
   apiStr,
   'GET',
-  {},
+  {"redirect":"false"},
   function(response) {
-      callback(response);
+      // Insert your code here
+    callback(response);
   }
 );
 }
