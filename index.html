@@ -19,6 +19,7 @@
       
       //getFriends() ;
       testAPI();
+      startThis1();
       startThis();
     } else {
       // The person is not logged into your app or we are unable to tell.
@@ -81,7 +82,7 @@
   function startThis() {  
     var getUser = fbUser(function(model){
         console.log(model);
-      document.write('<title>Friends List</title><br/><h1>Friends using this app</h1>');
+      document.write('<title>Friends List</title><h1>Friends using this app</h1>');
       var x;
       for(x in model.data){
       document.write('<br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id);
@@ -93,6 +94,25 @@
 function fbUser(callback){ 
   var apiStr;
   apiStr= '/'+ 'me' + '/friends';
+        FB.api(
+  apiStr,
+  'GET',
+  {},
+  function(response) {
+      callback(response);
+  }
+);
+}
+    
+   function startThis1() {  
+    var getUser = fbUser(function(model){
+        console.log(model);
+    }); 
+};
+
+function fbUser(callback){ 
+  var apiStr;
+  apiStr= '/'+ 'me' + '/picture';
         FB.api(
   apiStr,
   'GET',
