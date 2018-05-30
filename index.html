@@ -82,11 +82,12 @@
   function startThis() {  
     var getUser = fbUser(function(model){
         console.log(model);
-      document.write('<title>Friends List</title><h1>Friends using this app</h1>');
+      document.write('<h2>Ask your Facebook Friends for trusted reviews!</h2>');
       var x;
       for(x in model.data){
-      document.write('Name: ' + model.data[x].name);
         document.write('<img src="https://graph.facebook.com/'+ model.data[x].id+'/picture?type=large" alt="Profile Picture" width="60" height="60"><br/>');
+      document.write(model.data[x].name+'<br/><br/>');
+        
       }
       document.write('<br/>Total Friends: '+ model.summary.total_count);
     }); 
