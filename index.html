@@ -85,7 +85,7 @@
       document.write('<title>Friends List</title><h1>Friends using this app</h1>');
       var x;
       for(x in model.data){
-      document.write('<br/>'+ 'Name: ' + model.data[x].name);
+      document.write('Name: ' + model.data[x].name);
         document.write('<img src="https://graph.facebook.com/'+ model.data[x].id+'/picture?type=large" alt="Profile Picture" width="60" height="60"><br/>');
       }
       document.write('<br/>Total Friends: '+ model.summary.total_count);
