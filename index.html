@@ -86,7 +86,7 @@
       var x;
       for(x in model.data){
       document.write('<br/>'+ 'Name: ' + model.data[x].name + ' User ID: '+ model.data[x].id);
-        document.write('<br/>'+'<div> <object type="text/html" data="http://graph.facebook.com/[ID]/picture " width="100%" height="200px" style="overflow:auto;border:5px ridge black"></object></div>');
+        document.write('<br/>'+'<div> <object type="text/html" data="http://graph.facebook.com/model.data[x].id/picture " width="100%" height="200px" style="overflow:auto;border:5px ridge black"></object></div>');
       }
       document.write('<br/>Total Friends: '+ model.summary.total_count);
     }); 
