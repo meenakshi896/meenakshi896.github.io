@@ -5,20 +5,7 @@
 <meta charset="UTF-8">
 </head>
 <body>
-  
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDfdpa4i8BeV--_ej27F8f7BGvzBD8pjlo",
-    authDomain: "buddyreview-f8734.firebaseapp.com",
-    databaseURL: "https://buddyreview-f8734.firebaseio.com",
-    projectId: "buddyreview-f8734",
-    storageBucket: "",
-    messagingSenderId: "55152557528"
-  };
-  firebase.initializeApp(config);
-</script>
+
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -97,10 +84,8 @@
     var getUser = fbUser(function(model){
         console.log(model);
       document.write('<h2>Ask your Facebook Friends for trusted reviews!</h2>');
-      var x;
-      var url=x.contentWindow.location.href;
+
       for(x in model.data){
-        document.write(url);
         document.write('<img src="https://graph.facebook.com/'+ model.data[x].id+'/picture?type=large" alt="Profile Picture" width="60" height="60"><br/>');
       document.write(model.data[x].name+'<br/><br/>');
         
